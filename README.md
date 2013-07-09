@@ -14,13 +14,20 @@ Feature
 
 settings
 ========
-
+```
   <dataConfig>
-    <dataSource name="entity_%d" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://192.168.1.1:3306/entity_%d?useUnicode=true&amp;characterEncoding=utf8" user="user" password="pass" shard="true" shardStep="1" shardBegin="0" shardEnd="1"/>
+    <dataSource name="entity_%d" driver="com.mysql.jdbc.Driver" 
+    url="jdbc:mysql://192.168.1.1:3306/entity_%d?useUnicode=true&amp;characterEncoding=utf8" 
+    user="user" password="pass" shard="true" shardStep="1" shardBegin="0" shardEnd="1"/>
     <document name="entity">
-        <entity datasource="entity_%d" name="entity_%d" query="select * from t_entity_%d" deltaImportQuery="select * from t_entity_%d where id='${dih.delta.id}'"  deltaQuery="select id from t_entity_%d where ftime &gt; '${dih.last_index_time}'" shard="true" shardStep="1" shardBegin="0" shardEnd="1">
+        <entity datasource="entity_%d" name="entity_%d" 
+        query="select * from t_entity_%d" 
+        deltaImportQuery="select * from t_entity_%d where id='${dih.delta.id}'"  
+        deltaQuery="select id from t_entity_%d where ftime &gt; '${dih.last_index_time}'" 
+        shard="true" shardStep="1" shardBegin="0" shardEnd="1">
             <field column="id" name="id" />
            ... ...
         </entity>
        </document>
    </dataConfig>
+```
